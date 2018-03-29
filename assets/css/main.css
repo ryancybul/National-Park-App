@@ -1,0 +1,22 @@
+body {
+    background-image: url(assets/images/regal.png);
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 15px;
+    }
+
+    .js-container {
+        width: 900px;
+        height: 800px;
+        padding: 10px;
+        border: 1px dotted #c9bbc0;
+        background-color: #f4f1f2;
+        position: absolute;
+        overflow: scroll;
+        margin: 75px 175px 15px 200px; 
+        }
