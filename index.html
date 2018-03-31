@@ -8,12 +8,26 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
 </head>
 <body>
-    <div class="js-container"></div>
+    <div class="js-container" id='map'></div>
+
+
+
+<!-- Google Map stuff, it won't be here forever I promise -->
+<script>
+    function initMap() {
+        let options = {
+            zoom: 8,
+            center:{lat:41.896798,lng:-87.618804}
+        }
+        let map = new
+        google.maps.Map(document.getElementById('map'), options);
+    }
+</script>
 
 <!--JQuery, JavaScript, Google Maps-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./assets/js/main.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoeXJw_A8kRRjm5VsqzpWvLvqC2vGtXB0&callback=initMap"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/js/main.js" defer></script>
 
 </body>
 </html>

@@ -20,3 +20,7 @@ body {
         overflow: scroll;
         margin: 75px 175px 15px 200px; 
         }
+
+    #map {
+        height: 100%;
+        }
