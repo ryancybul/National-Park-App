@@ -19,7 +19,7 @@ google.maps.Map(document.getElementById('map'), options);
     let parkDataArray =  results.filter(function(cur,i){
             return cur.fullName.indexOf('National Park')>-1;
         })
-        console.log('Filtered array: ', parkDataArray);
+        console.log('Filtered array: ', parkDataArray.length);
         markers(parkDataArray);
     });
 
@@ -59,7 +59,7 @@ google.maps.Map(document.getElementById('map'), options);
         //To do: Make it so only one info window can be open at once. 
         //When marker is clicked open window. 
         marker.addListener('click', function(){
-            infoWindow.open(map, marker);
+        infoWindow.open(map, marker);
         });
         
     }
