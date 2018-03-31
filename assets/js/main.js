@@ -9,7 +9,7 @@ $(document).ready(function() {
 //Functions
 function initMap() {
     let options = {
-        zoom: 8,
+        zoom: 5,
         center:{lat:41.896798,lng:-87.618804}
     }
     let map = new
