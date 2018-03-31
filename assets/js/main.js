@@ -9,37 +9,38 @@ function initMap() {
     //Displays the map
     let map = new
     google.maps.Map(document.getElementById('map'), options);
-
-        //AJAX right hurr.
     
-        let queryURL = "https://developer.nps.gov/api/v1/parks?limit=504&q=" + parkName + "&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
+        let queryURL = "https://developer.nps.gov/api/v1/parks?limit=504&q=&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
         console.log(queryURL);
         $.ajax({ url: queryURL, method: "GET" })
         .then(function(response) {
           let results = response.data;
-          console.log(results);
-          for (var i = 0; i < results.length; i++) {
-            console.log(results[i].fullName);
-          }
+        let parkDataArray =  results.filter(function(cur,i){
+              return cur.fullName.indexOf('National Park')>-1;
+          })
+          markers(parkDataArray);
+          console.log('Filtered array: ', parkDataArray);
         });
 
-        //function markers(parkDataArray){
-        var markers = [
-        {
-            coords:{lat:41.896798,lng:-87.618804},
-            content:'<h1>Oh hai!</h1>'
-        },
-        {
-            coords:{lat:37.8651,lng:-119.5383},
-            content:'<h1>Hello!</h1>'
-        },
-        ]
+        function markers(parkDataArray){
 
         //Loop through markers
-        for(var i = 0; i < markers.length;i++){
-            addMarker(markers[i]);
+        for(var i = 0; i < parkDataArray.length;i++){
+            let latLong = parkDataArray[i].latLong.split(', ');
+            console.log('LatLong: ', latLong);
+            let lat = +latLong[0].slice(4);
+            console.log('Lat ', lat);
+            let long = +latLong[1].slice(5);
+            console.log('Long ', long);
+
+            let coordsObj = {
+                coords:{lat: lat,lng: long}
+            }
+            console.log(coordsObj);
+            addMarker(coordsObj);
         }
-        
+    }
+
         //Add marker function
         function addMarker(props) {
             let marker = new google.maps.Marker({
@@ -61,6 +62,7 @@ function initMap() {
             }
         }
     }
+
 
 
 
