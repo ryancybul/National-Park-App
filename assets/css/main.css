@@ -1,41 +1,43 @@
 body {
     background-image: url(../images/bg.png);
     background-repeat: repeat;
-    margin: 0;
-    padding: 0;
     font-family: "Courier New";
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
     line-height: 15px;
-    }
-
-    .js-container {
+}
+.js-container {
     width: 900px;
-    height: 800px;
+    height: 400px;
     padding: 10px;
     border: 2px dotted #bdc5b1;
     background-color: #f7f9f3;
-    position: absolute;
     overflow: scroll;
-    margin: 30px 170px;
-    }
-
-    #map {
-    height: 100%;
-    }
-
-    .js-popup {
+    margin: 10px 100px;
+}
+.js-popup {
     width: 250px;
     height: 200px;
     padding: 5px;
     background-color: #fdfefb;
     border: 1px solid #d6dfc8;
-    }
-
-    h1 {
+}
+.js-info{
+    width: 900px;
+    height: 100px;
+    padding: 10px;
+    overflow: scroll;
+    background-color: #f7f9f3;
+    border: 2px dotted #bdc5b1;
+    margin: 25px 100px 0px 100px;
+}
+#info {
+    height: 100%;
+}
+h1 {
     font-family: 'Dosis', sans-serif;
     font-size: 16px;
     font-style: bold;
     line-height: 18px;
-    }
+}

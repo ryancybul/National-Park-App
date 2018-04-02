@@ -1,5 +1,7 @@
-//Functions
-//Loads map on page load
+//Variables
+let parkObject = [];
+
+//
 function initMap() {
     //Map options
     let options = {
@@ -41,10 +43,13 @@ function initMap() {
             }
             console.log(parkObj);
             addMarker(parkObj);
+            parkObject.push(parkObj);
             }
         }
-
+        console.log(parkObject);
     }
+
+
 
     //Add marker function
     function addMarker(parkInfo) {
@@ -68,11 +73,10 @@ function initMap() {
         //When marker is clicked open window. 
         marker.addListener('click', function(){
         infoWindow.open(map, marker);
-        });
-        
-        
+        });    
     }
 }
+
 
 
 
