@@ -7,6 +7,15 @@ body {
     font-variant: normal;
     line-height: 15px;
 }
+.static-header {
+    width: 100%;
+    height: 65px;
+    background-color: #7B8355;
+    top: 0;
+    margin-bottom: 20px;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+}
 .js-container {
     width: 900px;
     height: 400px;
@@ -14,30 +23,60 @@ body {
     border: 2px dotted #bdc5b1;
     background-color: #f7f9f3;
     overflow: scroll;
-    margin: 10px 100px;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
 .js-popup {
-    width: 250px;
+    width: 375px;
     height: 200px;
     padding: 5px;
     background-color: #fdfefb;
     border: 1px solid #d6dfc8;
+    overflow: scroll;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
 }
-.js-info{
+.js-info {
     width: 900px;
-    height: 100px;
+    height: 300px;
     padding: 10px;
     overflow: scroll;
     background-color: #f7f9f3;
     border: 2px dotted #bdc5b1;
-    margin: 25px 100px 0px 100px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+.js-pics {
+    width: 900px;
+    height: 400px;
+    padding: 10px;
+    overflow: auto;
+    background-color: #f7f9f3;
+    border: 2px dotted #bdc5b1;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
 #info {
     height: 100%;
 }
 h1 {
-    font-family: 'Dosis', sans-serif;
-    font-size: 16px;
+    font-family: 'Righteous', cursive;
+    font-size: 45px;
     font-style: bold;
+    color: #EFF7E1;
     line-height: 18px;
+    text-align: left;
+}
+a:link {
+    color: #9AA170;
+}
+a:visited {
+    color: #C3CB8D;
+}
+a:hover {
+    color: #9AA170;
+}
+a:active {
+    color: #AEB67D;
 }

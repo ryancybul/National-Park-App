@@ -40,6 +40,7 @@ function markers(parkDataArray, map){
                 weather: parkDataArray[i].weatherInfo,
                 url: parkDataArray[i].url,
                 states: parkDataArray[i].states,
+                images: parkDataArray[i].images
             }
             console.log(parkObj);
             addMarker(parkObj, map);
@@ -63,7 +64,8 @@ function addMarker(parkInfo, map) {
         description: parkInfo.description,
         directions: parkInfo.directions,
         states: parkInfo.states,
-        icon: './assets/images/Tree_Icon.svg'
+        icon: './assets/images/Tree_Icon.svg',
+        images: parkInfo.images
     });
 
     //Info window click event
@@ -82,7 +84,13 @@ function addMarker(parkInfo, map) {
     $("#weatherInfo").text(marker.weather);
     $('#url').html('<a target="_blank" href="' + this.url +  '">Link</a>');
     $("#states").text(marker.states);
-    });    
+    //For loop to print images
+    for (let i = 0; i < (this.images).length; i++) {
+        $('.js-pics').append('it works');
+        
+    }
+
+    });   
 }
 //
 
