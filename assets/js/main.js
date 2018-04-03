@@ -12,7 +12,7 @@ function initMap() {
     google.maps.Map(document.getElementById('map'), options);
 
     //AJAX Call for NPS API
-    let queryURL = "https://developer.nps.gov/api/v1/parks?limit=504&q=&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
+    let queryURL = "https://developer.nps.gov/api/v1/parks?fields=images&limit=100&q=National+Park&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
     console.log(queryURL);
     $.ajax({ url: queryURL, method: "GET" })
     .then(function(response) {
