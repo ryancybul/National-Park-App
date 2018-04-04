@@ -1,11 +1,9 @@
-//Variables
-let parkObject = [];
-
+//Initializ Map and init state
 function initMap() {
     //Map options
     let options = {
-        zoom: 4.3,
-        center:{lat:39.8283,lng:-98.5795}
+        zoom: 4.6,
+        center:{lat:38.8283,lng:-98.5795}
     }
     //Displays the map
     let map = new
@@ -23,7 +21,11 @@ function initMap() {
         console.log('Filtered array: ', parkDataArray.length);
         markers(parkDataArray, map);
     });
+    //Hide page elements until park is clicked. 
+    $(".js-info").hide();
+    $(".js-pics").hide();
 }
+
 //Function to run markers
 function markers(parkDataArray, map){
     for(var i = 0; i < parkDataArray.length;i++){
@@ -44,14 +46,11 @@ function markers(parkDataArray, map){
             }
             console.log(parkObj);
             addMarker(parkObj, map);
-            parkObject.push(parkObj);
             }
         }
-        console.log(parkObject);
     }
     
-    
-        //Add marker function
+//Add marker function
 function addMarker(parkInfo, map) {
     let marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
@@ -69,7 +68,7 @@ function addMarker(parkInfo, map) {
     });
 
     //Info window click event
-    let infoWindowContent = "<div >" + parkInfo.name + "</div>" + "<div>" + parkInfo.description + "</div>" + '<button>'+'More Info'+'</button>';
+    let infoWindowContent = "<div >" + parkInfo.name + "</div>" + "<div>" + parkInfo.description + "</div>" + '<button id="moreInfo">'+'More Info'+'</button>';
     let infoWindow = new google.maps.InfoWindow({
     content: infoWindowContent,
     });
@@ -77,21 +76,35 @@ function addMarker(parkInfo, map) {
     //To do: Make it so only one info window can be open at once. 
     //When marker is clicked open window. 
     marker.addListener('click', function(){
-    infoWindow.open(map, marker);
-    $("#fullName").text(marker.name);
-    $("#description").text(marker.description);
-    $("#directionsInfo").text(marker.directions);
-    $("#weatherInfo").text(marker.weather);
-    $('#url').html('<a target="_blank" href="' + this.url +  '">Link</a>');
-    $("#states").text(marker.states);
-    //For loop to print images
-    for (let i = 0; i < (this.images).length; i++) {
-        $('.js-pics').append('it works');
-        
-    }
+        infoWindow.open(map, marker);
 
+        //Hide page elements until park is clicked. 
+        $(".js-info").show();
+        $(".js-pics").show();
+
+        //Displays info from JSON
+        $("#fullName").text(marker.name);
+        $("#description").text(marker.description);
+        $("#directionsInfo").text(marker.directions);
+        $("#weatherInfo").text(marker.weather);
+        $('#url').html('<a target="_blank" href="' + this.url +  '">Link</a>');
+        $("#states").text(marker.states);
+
+        //Clears image div when park is clicked
+        $('.js-pics').empty();
+        //For loop to print images
+        for (let i = 0; i < (this.images).length; i++) {
+            $('.js-pics').append('<img class="images" src='+this.images[i].url+' />');
+            $('.js-pics').append('<p>'+this.images[i].caption+'</p>');
+        }
     });   
 }
+    //More Info button click
+    $(document).on('click', '#moreInfo', function(){
+        $('html, body').animate({
+            scrollTop: $(".js-info").offset().top
+        }, 1000);
+    })
 //
 
 

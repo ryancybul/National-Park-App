@@ -26,6 +26,9 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
 }
+.images {
+    width: 100%;
+}
 .js-popup {
     width: 375px;
     height: 200px;
@@ -48,7 +51,7 @@ body {
 }
 .js-pics {
     width: 900px;
-    height: 400px;
+    height: 100%;
     padding: 10px;
     overflow: auto;
     background-color: #f7f9f3;
