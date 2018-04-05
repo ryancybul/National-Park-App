@@ -1,3 +1,4 @@
+var openWindow = false;
 //Initializ Map and init state
 function initMap() {
     //Map options
@@ -109,8 +110,16 @@ function addMarker(parkInfo, map) {
     //To do: Make it so only one info window can be open at once. 
     //When marker is clicked open window. 
     marker.addListener('click', function(){
+
+
+
         //Centers to marker
-        map.panTo(marker.getPosition());    
+        map.panTo(marker.getPosition());  
+        if(openWindow){
+            openWindow.close();
+        }
+
+        openWindow = infoWindow;
         infoWindow.open(map, marker);
 
         //Hide page elements until park is clicked. 
