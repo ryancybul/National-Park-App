@@ -1,4 +1,5 @@
 var openWindow = false;
+var testBoolean = true;
 //Initializ Map and init state
 function initMap() {
     //Map options
@@ -11,7 +12,7 @@ function initMap() {
     google.maps.Map(document.getElementById('map'), options)
 
     //AJAX Call for NPS API
-    let queryURL = "https://developer.nps.gov/api/v1/parks?fields=images&limit=100&q=National+Park&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
+    let queryURL = "https://developer.nps.gov/api/v1/parks?fields=images,contacts,entranceFees,operatingHours&limit=100&q=National+Park&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
     console.log(queryURL);
     $.ajax({ url: queryURL, method: "GET" })
     .then(function(response) {
@@ -19,7 +20,7 @@ function initMap() {
         let parkDataArray =  results.filter(function(cur,i){
             return cur.fullName.indexOf('National Park')>-1;
         })
-        console.log('Filtered array: ', parkDataArray.length);
+        console.log('Filtered array: ', parkDataArray);
         markers(parkDataArray, map);
     });
     
@@ -71,19 +72,58 @@ function markers(parkDataArray, map){
                 name: parkDataArray[i].fullName,
                 description: parkDataArray[i].description,
                 coords:{lat: lat,lng: long},
+                cEmail: parkDataArray[i].contacts.emailAddresses[0].emailAddress,
+                cPhone: parkDataArray[i].contacts.phoneNumbers[0].phoneNumber,
                 directions: parkDataArray[i].directionsInfo,
+                feeC: (function(){
+                    if (parkDataArray[i].entranceFees[0]) return parkDataArray[i].entranceFees[0].cost;
+                  }()),
+                feeD: (function(){
+                    if (parkDataArray[i].entranceFees[0]) return parkDataArray[i].entranceFees[0].description;
+                  }()),
+                feeT: (function(){
+                    if (parkDataArray[i].entranceFees[0]) return parkDataArray[i].entranceFees[0].title;
+                  }()),   
                 weather: parkDataArray[i].weatherInfo,
                 lat: lat,
                 long: long,
+                opDesc: (function(){
+                    if (parkDataArray[i].operatingHours[0]) return parkDataArray[i].operatingHours[0].description;
+                  }()),
+                opHoursM: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.monday;
+                  }()),
+                opHoursT: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.tuesday;
+                  }()),
+                opHoursW: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.wednesday;
+                  }()),
+                opHoursTh: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.thursday;
+                  }()),
+                opHoursF: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.friday;
+                  }()),
+                opHoursSa: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.saturday;
+                  }()),
+                opHoursSu: (function(){
+                    if (parkDataArray[i].operatingHours[0]) 
+                    return parkDataArray[i].operatingHours[0].standardHours.sunday;
+                  }()),
                 url: parkDataArray[i].url,
                 states: parkDataArray[i].states,
                 images: parkDataArray[i].images[i],
                 imagesURL: imagesUrlArr,
             }
-            //console.log(parkObj.imagesURL);
-            //console.log(parkObj.imagesURL);
             console.log(parkObj)
-           // console.log(parkObj.imagesURL);
             addMarker(parkObj, map);
             directions(parkObj);
             }
@@ -91,7 +131,6 @@ function markers(parkDataArray, map){
     }
 
 function directions(parkObj){
-    console.log('Console log: '+parkObj.lat+', '+parkObj.long);
     $('#start').append('<option value="'+parkObj.lat+', '+parkObj.long+'">'+parkObj.name+'</option>');
     $('#end').append('<option value="'+parkObj.lat+', '+parkObj.long+'">'+parkObj.name+'</option>');
 }
@@ -104,6 +143,19 @@ function addMarker(parkInfo, map) {
         map: map,
         name: parkInfo.name,
         coords: parkInfo.coords,
+        phone: parkInfo.cPhone,
+        email: parkInfo.cEmail,
+        feeC: parkInfo.feeC,
+        feeD: parkInfo.feeD,
+        feeT: parkInfo.feeT,
+        opHoursM: parkInfo.opHoursM,
+        opHoursT: parkInfo.opHoursT,
+        opHoursW: parkInfo.opHoursW,
+        opHoursTh: parkInfo.opHoursTh,
+        opHoursF: parkInfo.opHoursF,
+        opHoursSa: parkInfo.opHoursSa,
+        opHoursSu: parkInfo.opHoursSu,
+        opDesc: parkInfo.opDesc,
         weather: parkInfo.weather,
         url: parkInfo.url,
         description: parkInfo.description,
@@ -145,6 +197,9 @@ function addMarker(parkInfo, map) {
         $("#weatherInfo").text(marker.weather);
         //$("#latLong").text(JSON.stringify(marker.coords));
         $('#url').html('<a target="_blank" href="' + this.url +  '">Link to park website.</a>');
+        $("#entranceFees").html('<p>'+'Type: '+marker.feeT+ '</p>'+'<p>'+'Cost: $'+marker.feeC+ '</p>'+'<p>'+'Description: '+marker.feeD+ '</p>' );
+        $("#parkHours").html('<p>'+marker.opDesc+ '</p>'+'<br>'+'<p style="font-weight:bold">'+'Hours: </p>' +'<p>'+'Monday: '+marker.opHoursM+'</p>'+'<p>'+'Tuesday: '+marker.opHoursT+'</p>'+'Wednesday: '+marker.opHoursW+'</p>'+'Thursday: '+marker.opHoursTh+'</p>'+'Friday: '+marker.opHoursF+'</p>'+'Saturday: '+marker.opHoursSa+'</p>'+'Sunday: '+marker.opHoursSu+'</p>');
+        $("#contactInfo").html('<p>'+'Phone Number: '+marker.phone+ '</p>'+'<p>'+'Email: '+marker.email+ '</p>' );
         $("#states").text(marker.states);
 
         let firstDiv = $("<div>");
@@ -171,7 +226,6 @@ function addMarker(parkInfo, map) {
             carouselImgs.attr("id", "js-image");
             carouselImgs.addClass("d-block");
             carouselImgs.attr("src", this.imagesURL[i]);
-
             carouselDiv.append(carouselImgs);
 
             $("#js-carousel-inner").append(carouselDiv);
