@@ -10,11 +10,11 @@ body {
 .carousel {
     width:900px;
     height:100%;
-    max-height: ;
 }
 .cWrapper {
     display: flex;
     justify-content: center;
+    margin: 25px 0px;
     width: 100%;
 }
 .directions {
@@ -51,8 +51,7 @@ body {
     border: 2px dotted #bdc5b1;
     background-color: #f7f9f3;
     overflow: scroll;
-    margin: 0 auto;
-    margin-bottom: 5px;
+    margin: 25px auto;
 }
 .js-popup {
     width: 375px;
@@ -72,8 +71,8 @@ body {
     background-color: #f7f9f3;
     border: 2px dotted #bdc5b1;
     font-family: 'Hind Vadodara', sans-serif;
-    margin: 0 auto;
-    margin-bottom: 5px;
+    margin: 25px auto;
+    padding: 10px;
 }
 .js-pics {
     width: 900px;
@@ -86,7 +85,6 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
 }
-
 #js-image {
     width: 900px;
     height: 100%;
