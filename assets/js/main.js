@@ -153,7 +153,7 @@ function addMarker(parkInfo, map) {
 
         let carouselImg = $("<img>");
         carouselImg.attr("id", "js-image");
-        carouselImg.addClass("d-block w-100");
+        carouselImg.addClass("d-block");
         carouselImg.attr("src", this.imagesURL[0]);
 
         firstDiv.append(carouselImg);
@@ -169,7 +169,7 @@ function addMarker(parkInfo, map) {
 
             let carouselImgs = $("<img>");
             carouselImgs.attr("id", "js-image");
-            carouselImgs.addClass("d-block w-100");
+            carouselImgs.addClass("d-block");
             carouselImgs.attr("src", this.imagesURL[i]);
 
             carouselDiv.append(carouselImgs);
