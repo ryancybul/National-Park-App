@@ -128,6 +128,7 @@ function addMarker(parkInfo, map) {
         map.panTo(marker.getPosition());  
         if(openWindow){
             openWindow.close();
+            $('#js-carousel-inner').empty();
         }
 
         openWindow = infoWindow;
@@ -146,24 +147,6 @@ function addMarker(parkInfo, map) {
         $('#url').html('<a target="_blank" href="' + this.url +  '">Link to park website.</a>');
         $("#states").text(marker.states);
 
- /*        let carouselFirstDiv = $("<div>");
-        carouselFirstDiv.attr("id", "js-carousel-item");
-        carouselFirstDiv.addClass("carousel-item active");
-        let carouselImg = $("<img>");
-        carouselImg.attr("id", "js-image");
-        carouselImg.addClass("d-block w-100");
-        carouselImg.attr("src", marker.imagesURL[0]);
-        carouselFirstDiv.append(carouselImg);
-        $(".js-first-carousel-pic").append(carouselFirstDiv);
-        //For loop to print images
-
-        //new work
-        var elements = $(); */
-
-        //
-
-        console.log(this.imagesURL[0]);
-
         let firstDiv = $("<div>");
         firstDiv.attr("id", "js-carousel-item");
         firstDiv.addClass("carousel-item active");
@@ -179,28 +162,20 @@ function addMarker(parkInfo, map) {
 
         for (let i = 1; i < (this.imagesURL).length; i++) {
 
-                console.log(this.imagesURL);
-                let carouselDiv = $("<div>");
-                carouselDiv.attr("id", "js-carousel-item");
-                carouselDiv.addClass("carousel-item");
-    
-                let carouselImgs = $("<img>");
-                carouselImgs.attr("id", "js-image");
-                carouselImgs.addClass("d-block w-100");
-                carouselImgs.attr("src", this.imagesURL[i]);
-    
-                carouselDiv.append(carouselImgs);
+            console.log(this.imagesURL);
+            let carouselDiv = $("<div>");
+            carouselDiv.attr("id", "js-carousel-item");
+            carouselDiv.addClass("carousel-item");
 
-                $("#js-carousel-inner").append(carouselDiv);
-            //$('.js-pics').append('<img class="images" src='+this.images[i].url+' />');
-            //$('.js-pics').append('<p>'+this.images[i].caption+'</p>');
-            //$('span:first', this.imagesURL).attr('class', 'carousel-item');
-        }
+            let carouselImgs = $("<img>");
+            carouselImgs.attr("id", "js-image");
+            carouselImgs.addClass("d-block w-100");
+            carouselImgs.attr("src", this.imagesURL[i]);
 
+            carouselDiv.append(carouselImgs);
 
-        //$('carouselDiv').find()
-        
-
+            $("#js-carousel-inner").append(carouselDiv);
+        }   
     });   
 }
     //More Info button click
