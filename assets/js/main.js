@@ -55,10 +55,17 @@ function initMap() {
 //Function to run markers
 function markers(parkDataArray, map){
     for(var i = 0; i < parkDataArray.length;i++){
+        let imagesUrlArr = [];
         if(parkDataArray[i].latLong){
             let latLong = parkDataArray[i].latLong.split(', ');
             let lat = +latLong[0].slice(4);
             let long = +latLong[1].slice(5);
+
+            for(j = 0; j < parkDataArray[i].images.length; j++){
+                console.log((parkDataArray[i].images[j].url));
+                //console.log(imagesUrlArr);
+                imagesUrlArr.push(parkDataArray[i].images[j].url)
+            }
 
             let parkObj = {
                 name: parkDataArray[i].fullName,
@@ -70,10 +77,13 @@ function markers(parkDataArray, map){
                 long: long,
                 url: parkDataArray[i].url,
                 states: parkDataArray[i].states,
-                images: parkDataArray[i].images
+                images: parkDataArray[i].images[i],
+                imagesURL: imagesUrlArr,
             }
-            console.log(parkObj);
-            console.log(parkObj.name);
+            //console.log(parkObj.imagesURL);
+            //console.log(parkObj.imagesURL);
+            console.log(parkObj)
+           // console.log(parkObj.imagesURL);
             addMarker(parkObj, map);
             directions(parkObj);
             }
@@ -100,7 +110,8 @@ function addMarker(parkInfo, map) {
         directions: parkInfo.directions,
         states: parkInfo.states,
         icon: './assets/images/Tree_Icon.svg',
-        images: parkInfo.images
+        images: parkInfo.images,
+        imagesURL: parkInfo.imagesURL,
     });
 
     //Info window click event
@@ -112,6 +123,7 @@ function addMarker(parkInfo, map) {
     //To do: Make it so only one info window can be open at once. 
     //When marker is clicked open window. 
     marker.addListener('click', function(){
+        
         //Centers to marker
         map.panTo(marker.getPosition());  
         if(openWindow){
@@ -134,13 +146,61 @@ function addMarker(parkInfo, map) {
         $('#url').html('<a target="_blank" href="' + this.url +  '">Link to park website.</a>');
         $("#states").text(marker.states);
 
-        //Clears image div when park is clicked
-        $('.js-pics').empty();
+ /*        let carouselFirstDiv = $("<div>");
+        carouselFirstDiv.attr("id", "js-carousel-item");
+        carouselFirstDiv.addClass("carousel-item active");
+        let carouselImg = $("<img>");
+        carouselImg.attr("id", "js-image");
+        carouselImg.addClass("d-block w-100");
+        carouselImg.attr("src", marker.imagesURL[0]);
+        carouselFirstDiv.append(carouselImg);
+        $(".js-first-carousel-pic").append(carouselFirstDiv);
         //For loop to print images
-        for (let i = 0; i < (this.images).length; i++) {
-            $('.js-pics').append('<img class="images" src='+this.images[i].url+' />');
-            $('.js-pics').append('<p>'+this.images[i].caption+'</p>');
+
+        //new work
+        var elements = $(); */
+
+        //
+
+        console.log(this.imagesURL[0]);
+
+        let firstDiv = $("<div>");
+        firstDiv.attr("id", "js-carousel-item");
+        firstDiv.addClass("carousel-item active");
+
+        let carouselImg = $("<img>");
+        carouselImg.attr("id", "js-image");
+        carouselImg.addClass("d-block w-100");
+        carouselImg.attr("src", this.imagesURL[0]);
+
+        firstDiv.append(carouselImg);
+
+        $("#js-carousel-inner").append(firstDiv);
+
+        for (let i = 1; i < (this.imagesURL).length; i++) {
+
+                console.log(this.imagesURL);
+                let carouselDiv = $("<div>");
+                carouselDiv.attr("id", "js-carousel-item");
+                carouselDiv.addClass("carousel-item");
+    
+                let carouselImgs = $("<img>");
+                carouselImgs.attr("id", "js-image");
+                carouselImgs.addClass("d-block w-100");
+                carouselImgs.attr("src", this.imagesURL[i]);
+    
+                carouselDiv.append(carouselImgs);
+
+                $("#js-carousel-inner").append(carouselDiv);
+            //$('.js-pics').append('<img class="images" src='+this.images[i].url+' />');
+            //$('.js-pics').append('<p>'+this.images[i].caption+'</p>');
+            //$('span:first', this.imagesURL).attr('class', 'carousel-item');
         }
+
+
+        //$('carouselDiv').find()
+        
+
     });   
 }
     //More Info button click
@@ -150,8 +210,7 @@ function addMarker(parkInfo, map) {
         }, 1000);
     })
 
-
-
+$(".carousel").carousel();
 
 
 
