@@ -115,7 +115,7 @@ function addMarker(parkInfo, map) {
     });
 
     //Info window click event
-    let infoWindowContent = "<div >" + parkInfo.name + "</div>" + '<button id="moreInfo">'+'More Info'+'</button>';
+    let infoWindowContent = "<div class='infoWindow'>" + "<div class='infoName'>" + parkInfo.name + "</div>" + '<button id="moreInfo">'+'More Info'+'</button>' + "</div>";
     let infoWindow = new google.maps.InfoWindow({
     content: infoWindowContent,
     });

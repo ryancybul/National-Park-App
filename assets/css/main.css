@@ -7,28 +7,24 @@ body {
     font-variant: normal;
     line-height: 15px;
 }
-
 .carousel {
     width:900px;
     height:100%;
+    max-height: ;
 }
-
 .cWrapper {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-
 .directions {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
-
 .dTitle {
     margin: 5px;
 }
-
 .fullName {
     display: flex;
     justify-content: center;
@@ -37,6 +33,16 @@ body {
 }
 .images {
     width: 100%;
+}
+.infoWindow{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.infoName {
+    font-weight: bold;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-size: 1.25em;
 }
 .js-container {
     width: 100%;
@@ -86,13 +92,16 @@ body {
     height: 100%;
 }
 .static-header {
+    align-items: center;
     display: flex;
     width: 100%;
-    height: 65px;
+    font-family: 'Cabin Sketch', cursive;
+    height: 75px;
     justify-content: center;
     background-color: #7B8355;
     top: 0;
     margin-bottom: 20px;
+    padding: 5px;
     opacity: 0.75;
     filter: alpha(opacity=75);
 }
@@ -106,8 +115,7 @@ body {
 }
 
 h1 {
-    font-family: 'Righteous', cursive;
-    font-size: 45px;
+    font-size: 65px;
     font-style: bold;
     color: #EFF7E1;
     line-height: 18px;
