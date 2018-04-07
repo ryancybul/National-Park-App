@@ -1,6 +1,5 @@
 body {
-    background-image: url(../images/bg.png);
-    background-repeat: repeat;
+    
     font-family: 'Hind Vadodara', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -48,7 +47,7 @@ body {
     width: 100%;
     height: 575px;
     padding: 0px;
-    border: 2px dotted #bdc5b1;
+    border: 2px solid #bdc5b1;
     background-color: #f7f9f3;
     overflow: scroll;
     margin: 25px auto;
@@ -68,19 +67,21 @@ body {
     height: 100%;
     padding: 10px;
     overflow: scroll;
-    background-color: #f7f9f3;
-    border: 2px dotted #bdc5b1;
+    background-color: #c9d8c5;
+    border: 2px solid #a8b6bf;
+    border-radius: 50px;
     font-family: 'Hind Vadodara', sans-serif;
     margin: 25px auto;
-    padding: 10px;
+    padding: 15px;
+    overflow: hidden;
 }
 .js-pics {
     width: 900px;
     height: 100%;
     padding: 10px;
     overflow: auto;
-    background-color: #f7f9f3;
-    border: 2px dotted #bdc5b1;
+    background-color: #a8b6bf;
+    border: 2px solid #c9d8c5;
     text-align: center;
     margin: 0 auto;
     margin-bottom: 5px;
@@ -96,12 +97,14 @@ body {
     font-family: 'Cabin Sketch', cursive;
     height: 75px;
     justify-content: center;
-    background-color: #7B8355;
+    background-color: #c9d8c5;
     top: 0;
     margin-bottom: 20px;
     padding: 5px;
     opacity: 0.75;
     filter: alpha(opacity=75);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #info {
     height: 100%;
@@ -113,21 +116,22 @@ body {
 }
 
 h1 {
-    font-size: 65px;
+    font-size: 5em;
     font-style: bold;
-    color: #EFF7E1;
+    color: #7d4627;
     line-height: 18px;
     text-align: left;
 }
 
 h3 {
     font-size: 1.5em;
+    margin-bottom: 10px;
 }
 a:link {
-    color: #9AA170;
+    color: rgb(65, 115, 52);
 }
 a:visited {
-    color: #C3CB8D;
+    color: rgb(55, 100, 48);
 }
 a:hover {
     color: #9AA170;
@@ -135,3 +139,33 @@ a:hover {
 a:active {
     color: #AEB67D;
 }
+
+
+/* media queries*/
+
+@media screen and (max-width: 768px) {
+    .directions {
+        max-width: 90%; 
+        margin: auto;
+    }
+    .js-info {
+        display: block;
+        max-width: 90%;
+        margin: 10px;
+        display: block;
+    }
+    .cWrapper {
+        max-width: 90%;
+        height: auto;
+        margin: 10px;
+    }
+
+    .static-header h1{
+        font-size: 4em;
+    }
+
+}
+
+@media screen and (max-width: 470) {
+
+    }
