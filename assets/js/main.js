@@ -9,6 +9,7 @@ function initMap() {
     //Displays the map
     let map = new
     google.maps.Map(document.getElementById('map'), options)
+
     //AJAX Call for NPS API
     let queryURL = "https://developer.nps.gov/api/v1/parks?fields=images&limit=100&q=National+Park&api_key=1w64xYKjzt6YExOPqZE6qtvVHCE3ZAOO7xrQgUAV";
     console.log(queryURL);
@@ -21,6 +22,7 @@ function initMap() {
         console.log('Filtered array: ', parkDataArray.length);
         markers(parkDataArray, map);
     });
+    
     //Hide page elements until park is clicked. 
     $(".js-info").hide();
     $(".js-pics").hide();
@@ -110,9 +112,6 @@ function addMarker(parkInfo, map) {
     //To do: Make it so only one info window can be open at once. 
     //When marker is clicked open window. 
     marker.addListener('click', function(){
-
-
-
         //Centers to marker
         map.panTo(marker.getPosition());  
         if(openWindow){
@@ -131,7 +130,8 @@ function addMarker(parkInfo, map) {
         $("#description").text(marker.description);
         $("#directionsInfo").text(marker.directions);
         $("#weatherInfo").text(marker.weather);
-        $('#url').html('<a target="_blank" href="' + this.url +  '">Link</a>');
+        //$("#latLong").text(JSON.stringify(marker.coords));
+        $('#url').html('<a target="_blank" href="' + this.url +  '">Link to park website.</a>');
         $("#states").text(marker.states);
 
         //Clears image div when park is clicked

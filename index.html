@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>google_mAPP</title>
+    <title>National Park App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara" rel="stylesheet">
 </head>
 
 <body>
     <div class="static-header">
-    <h1>National Park App</h1></div>
+    <h1>National Park App</h1>
+    </div>
 
     <div class="js-container" id='map'></div>
 
@@ -26,17 +28,29 @@
 
     <div class="js-info">
         <div id="fullName" class='fullName'></div>
+        <br>
         <!-- full names (fullName) of parks-->
+        <h3>Park description:</h3>
         <div id="description"></div>
+        <br>
         <!-- (description) of park (p tag) -->
+        <h3>Directions:</h3>
         <div id="directionsInfo"></div>
+        <br>
         <!-- direction (directionsInfo) information -->
+        <h3>Weather Info:</h3>
         <div id="weatherInfo"></div>
-        <!-- weather info  (weatherInfo)-->
-        <div id="url"></div>
+        <br>
+        <h3>Lat Long:</h3>
+        <div id="latLong"></div>
         <!-- (url) to specific park page -->
+        <h3>State:</h3>
         <div id="states"></div>
+        <br>
         <!-- (states) state that park is in -->
+        <div id="url" class='url'></div>
+        <br>
+        <!-- weather info  (weatherInfo)-->
     </div>
 
     <div class="js-pics">
