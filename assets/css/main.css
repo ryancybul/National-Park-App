@@ -97,6 +97,10 @@ body {
 #js-image {
     margin: auto;
     height: 500px;
+   
+}
+
+.js-carousel-item{
     border-radius: 15px;
 }
 .subtitle{
