@@ -22,13 +22,19 @@ body {
     flex-direction: column;
 }
 .dTitle {
+    font-family: 'Hind Vadodara', sans-serif;
+    color: black;
     margin: 5px;
+    margin-bottom: 20px;
 }
 .fullName {
+    color: #7d4627;
+    font-family: 'Cabin Sketch', cursive;
     display: flex;
     justify-content: center;
     font-size: 2em;
     font-weight: bold;
+    opacity: 0.75;
 }
 .images {
     width: 100%;
@@ -63,6 +69,8 @@ body {
     filter: alpha(opacity=60);
 }
 .js-info {
+    
+    line-height: 1.5;
     width: 900px;
     height: 100%;
     padding: 10px;
@@ -72,7 +80,7 @@ body {
     border-radius: 50px;
     font-family: 'Hind Vadodara', sans-serif;
     margin: 25px auto;
-    padding: 15px;
+    padding: 30px;
     overflow: hidden;
 }
 .js-pics {
@@ -89,15 +97,22 @@ body {
 #js-image {
     margin: auto;
     height: 500px;
+    border-radius: 15px;
+}
+.subtitle{
+    margin: 30px;
+    font-family: 'Hind Vadodara', sans-serif;
 }
 .static-header {
-    align-items: center;
+    background-image: url("./../images/adventure-calm-clouds-414171.jpg");
+    align-items: center;    
     display: flex;
+    flex-direction: column;
     width: 100%;
     font-family: 'Cabin Sketch', cursive;
-    height: 75px;
+    height: 300px;
     justify-content: center;
-    background-color: #c9d8c5;
+    /* background-color: #c9d8c5; */
     top: 0;
     margin-bottom: 20px;
     padding: 5px;
@@ -105,9 +120,40 @@ body {
     filter: alpha(opacity=75);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border-bottom: 2px solid #d6dfc8;
+    
 }
 #info {
     height: 100%;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 50px;
+    background-color: #c9d8c5;
+    border: 2px solid #a8b6bf;
+
+
+}
+
+.intro-title{
+    padding-bottom: 15px;
+    width: 600px;
+    font-family: 'Cabin Sketch', cursive;
+    color: white;
+    font-size: 30px;
+}
+.intro-para{
+    line-height: 1.5;
+    width: 600px;
+    font-size: 18;
 }
 
 .url {
@@ -115,17 +161,22 @@ body {
     justify-content: center;
 }
 
+
 h1 {
     font-size: 5em;
     font-style: bold;
     color: #7d4627;
     line-height: 18px;
     text-align: left;
+    padding-bottom: 15px;
 }
 
 h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: bold;
+    color: white;
 }
 a:link {
     color: rgb(65, 115, 52);
@@ -143,10 +194,18 @@ a:active {
 
 /* media queries*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 940px) {
     .directions {
         max-width: 90%; 
         margin: auto;
+    }
+    .introduction{
+        max-width: 90%;
+        margin: auto;
+    }
+    .intro-title .intro-para{
+        max-width: 90%;
+        margin: auto
     }
     .js-info {
         display: block;
@@ -162,6 +221,12 @@ a:active {
 
     .static-header h1{
         font-size: 4em;
+    }
+
+    #js-image {
+        max-height: 90%;
+        width: auto;
+        
     }
 
 }

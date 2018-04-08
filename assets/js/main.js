@@ -1,5 +1,7 @@
 var openWindow = false;
 var testBoolean = true;
+
+
 //Initializ Map and init state
 function initMap() {
     //Map options
@@ -198,7 +200,7 @@ function addMarker(parkInfo, map) {
         //$("#latLong").text(JSON.stringify(marker.coords));
         $('#url').html('<a target="_blank" href="' + this.url +  '">Link to park website.</a>');
         $("#entranceFees").html('<p>'+'Type: '+marker.feeT+ '</p>'+'<p>'+'Cost: $'+marker.feeC+ '</p>'+'<p>'+'Description: '+marker.feeD+ '</p>' );
-        $("#parkHours").html('<p>'+marker.opDesc+ '</p>'+'<br>'+'<p style="font-weight:bold">'+'Hours: </p>' +'<p>'+'Monday: '+marker.opHoursM+'</p>'+'<p>'+'Tuesday: '+marker.opHoursT+'</p>'+'Wednesday: '+marker.opHoursW+'</p>'+'Thursday: '+marker.opHoursTh+'</p>'+'Friday: '+marker.opHoursF+'</p>'+'Saturday: '+marker.opHoursSa+'</p>'+'Sunday: '+marker.opHoursSu+'</p>');
+        $("#parkHours").html('<p>'+marker.opDesc+ '</p>'+'<br>'+'<p style="font-weight:bold; color:white">'+'Hours: </p>' +'<p>'+'Monday: '+marker.opHoursM+'</p>'+'<p>'+'Tuesday: '+marker.opHoursT+'</p>'+'Wednesday: '+marker.opHoursW+'</p>'+'Thursday: '+marker.opHoursTh+'</p>'+'Friday: '+marker.opHoursF+'</p>'+'Saturday: '+marker.opHoursSa+'</p>'+'Sunday: '+marker.opHoursSu+'</p>');
         $("#contactInfo").html('<p>'+'Phone Number: '+marker.phone+ '</p>'+'<p>'+'Email: '+marker.email+ '</p>' );
         $("#states").text(marker.states);
 
