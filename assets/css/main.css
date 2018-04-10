@@ -104,8 +104,9 @@ body {
     border-radius: 15px;
 }
 .subtitle{
-    margin: 30px;
+    margin: 30px 0px;
     font-family: 'Hind Vadodara', sans-serif;
+    text-align: center;
 }
 .startEnd{
     display: flex;
@@ -153,8 +154,6 @@ body {
     padding: 50px;
     background-color: #c9d8c5;
     border: 2px solid #a8b6bf;
-
-
 }
 
 .intro-title{
@@ -208,6 +207,12 @@ a:active {
 
 /* media queries*/
 
+@media screen and (max-width: 470px) {
+    .static-header h1{
+        line-height: 40px;
+    }
+}
+
 @media screen and (max-width: 940px) {
     .directions {
         max-width: 90%; 
@@ -233,6 +238,7 @@ a:active {
 
     .static-header h1{
         font-size: 4em;
+        text-align: center;
     }
 
     .startEnd{
