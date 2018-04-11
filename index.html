@@ -13,87 +13,88 @@
 </head>
 
 <body>
-    
-    <div class="static-header">
-        <h1>National Park App</h1>
-        <h3 class="subtitle">The Adventurer's guide to National Parks.</h3>
-    </div>
-    <div class='introduction'>
-        <h3 class='intro-title'>Welcome to the National Park App!</h3>
-        <p class='intro-para'>
-            This application is designed for Adventurers looking to discover more about the National Parks located in the United States. Adventurers may use the map below to explore the park details including descriptions, directions, park hours, and more! 
-        </p>
-    </div>
-    <div class="js-container" id='map'></div>
-    
-    <div class='directions'>
-        <h3 class='dTitle'>Park to Park Directions:</h3>
-        <div class='startEnd'>
-            <div class='startEndT'>
-                <b>Start</b>
-                <select id="start">     
-                </select>
-            </div>
-            <div class='startEndT'>
-                <b>End</b>
-                <select id="end">
-                </select>
+    <div class='wrapper'>
+        <div class="static-header">
+            <h1>National Park App</h1>
+            <h3 class="subtitle">The Adventurer's guide to National Parks.</h3>
+        </div>
+        <div class='introduction'>
+            <h3 class='intro-title'>Welcome to the National Park App!</h3>
+            <p class='intro-para'>
+                This application is designed for Adventurers looking to discover more about the National Parks located in the United States. Adventurers may use the map below to explore the park details including descriptions, directions, park hours, and more! 
+            </p>
+        </div>
+        <div class="js-container" id='map'></div>
+        
+        <div class='directions'>
+            <h3 class='dTitle'>Park to Park Directions:</h3>
+            <div class='startEnd'>
+                <div class='startEndT'>
+                    <b>Start</b>
+                    <select id="start">     
+                    </select>
+                </div>
+                <div class='startEndT'>
+                    <b>End</b>
+                    <select id="end">
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="js-info">
-        <div id="fullName" class='fullName'></div>
-        <br>
-        <!-- full names (fullName) of parks-->
-        <h3>Park description:</h3>
-        <div id="description"></div>
-        <br>
-        <!-- (description) of park (p tag) -->
-        <h3>Directions:</h3>
-        <div id="directionsInfo"></div>
-        <br>
-        <!-- direction (directionsInfo) information -->
-        <h3>Weather Info:</h3>
-        <div id="weatherInfo"></div>
-        <br>
-        <h3>Park Hours:</h3>
-        <div id="parkHours"></div>
-        <br>
-        <h3>Entrance Fees:</h3>
-        <div id="entranceFees"></div>
-        <br>
-        <h3>Contact Info:</h3>
-        <div id="contactInfo"></div>
-        <br>
-        <!-- (url) to specific park page -->
-        <h3>State:</h3>
-        <div id="states"></div>
-        <br>
-        <!-- (states) state that park is in -->
-        <div id="url" class='url'></div>
-        <br>
-        <!-- weather info  (weatherInfo)-->
-    </div>
-
-    <div class="cWrapper">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div id="js-carousel-inner" class="carousel-inner">
-            <!--pictures appended here-->
+        <div class="js-info">
+            <div id="fullName" class='fullName'></div>
+            <br>
+            <!-- full names (fullName) of parks-->
+            <h3>Park description:</h3>
+            <div id="description"></div>
+            <br>
+            <!-- (description) of park (p tag) -->
+            <h3>Directions:</h3>
+            <div id="directionsInfo"></div>
+            <br>
+            <!-- direction (directionsInfo) information -->
+            <h3>Weather Info:</h3>
+            <div id="weatherInfo"></div>
+            <br>
+            <h3>Park Hours:</h3>
+            <div id="parkHours"></div>
+            <br>
+            <h3>Entrance Fees:</h3>
+            <div id="entranceFees"></div>
+            <br>
+            <h3>Contact Info:</h3>
+            <div id="contactInfo"></div>
+            <br>
+            <!-- (url) to specific park page -->
+            <h3>State:</h3>
+            <div id="states"></div>
+            <br>
+            <!-- (states) state that park is in -->
+            <div id="url" class='url'></div>
+            <br>
+            <!-- weather info  (weatherInfo)-->
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+
+        <div class="cWrapper">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div id="js-carousel-inner" class="carousel-inner">
+                <!--pictures appended here-->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
         </div>
     </div>
     <!-- pictures will go hereeeee -->

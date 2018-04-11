@@ -7,13 +7,13 @@ body {
     line-height: 15px;
 }
 .carousel {
-    width:900px;
+    width:100%;
     height:100%;
 }
 .cWrapper {
     display: flex;
     justify-content: center;
-    margin: 25px 0px;
+    margin: 15px 0px;
     width: 100%;
 }
 .directions {
@@ -73,7 +73,7 @@ body {
 .js-info {
     
     line-height: 1.5;
-    width: 900px;
+    max-width: 85%;
     height: 100%;
     background-color: #c9d8c5;
     border: 2px solid #a8b6bf;
@@ -158,20 +158,27 @@ body {
 
 .intro-title{
     padding-bottom: 15px;
-    width: 600px;
+    width: 100%;
     font-family: 'Cabin Sketch', cursive;
     color: white;
+    line-height: 1;
     font-size: 30px;
 }
 .intro-para{
     line-height: 1.5;
-    width: 600px;
+    width: 100%;
     font-size: 18;
 }
 
 .url {
     display: flex;
     justify-content: center;
+}
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -208,8 +215,12 @@ a:active {
 /* media queries*/
 
 @media screen and (max-width: 470px) {
-    .static-header h1{
-        line-height: 40px;
+    .static-header h1, h3{
+        line-height: 1;
+    }
+    #js-image {
+        margin: auto;
+        height: 200px;
     }
 }
 
